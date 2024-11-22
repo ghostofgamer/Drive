@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class WellFortune : MonoBehaviour
@@ -117,7 +116,7 @@ public class WellFortune : MonoBehaviour
 
     public void Win(int Score)
     {
-        _wallet.AddDiamonds(Score);
+        _wallet.IncreaseDiamonds(Score);
         print(Score);
     }
 }
