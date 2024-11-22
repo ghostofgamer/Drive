@@ -51,6 +51,15 @@ namespace SkillfulDriver
             numberOfDiamonds.text = "" + PlayerPrefs.GetInt("NumberOfDiamonds");
             GameObject.Find("GameManager").GetComponent<CreateNewGameArea>().NewGameArea(-11.31f);
             RandomRoadColor();
+            
+            float soundValue = PlayerPrefs.GetFloat("SoundVolume",1);
+            
+            Debug.Log("SOUND " + soundValue);
+            
+            if (soundValue > 0)
+                SetVolume(1);
+            else
+                SetVolume(0);
         }
 
         private void RandomRoadColor()
@@ -130,14 +139,14 @@ namespace SkillfulDriver
             buttonSound.Play();
         }
 
-        public void SetVolume()
+        public void SetVolume(float value)
         {
-            AudioListener.volume = volumeSlider.value;
+            AudioListener.volume = value;
         }
 
         public void SetVibration()
         {
-            if (vibrationToggle.isOn)
+            /*if (vibrationToggle.isOn)
             {
                 PlayerPrefs.SetInt("Vibration", 1);
             }
@@ -145,7 +154,7 @@ namespace SkillfulDriver
             {
                 PlayerPrefs.SetInt("Vibration", 0);
             }
-            buttonSound.Play();
+            buttonSound.Play();*/
         }
 
         public void StartTheGame()
