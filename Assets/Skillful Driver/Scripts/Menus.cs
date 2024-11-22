@@ -54,8 +54,6 @@ namespace SkillfulDriver
             
             float soundValue = PlayerPrefs.GetFloat("SoundVolume",1);
             
-            Debug.Log("SOUND " + soundValue);
-            
             if (soundValue > 0)
                 SetVolume(1);
             else

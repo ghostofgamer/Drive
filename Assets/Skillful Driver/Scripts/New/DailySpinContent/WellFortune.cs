@@ -1,7 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WellFortune : MonoBehaviour
 {
+    [SerializeField]private  Wallet _wallet;
+    
    public float RotatePower;
     public float StopPower;
 
@@ -114,8 +117,7 @@ public class WellFortune : MonoBehaviour
 
     public void Win(int Score)
     {
+        _wallet.AddDiamonds(Score);
         print(Score);
     }
-
-
 }
