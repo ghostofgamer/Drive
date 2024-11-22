@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DailySpinScreen : MonoBehaviour
+public class ScreensOpener : MonoBehaviour
 {
     private CanvasGroup _canvasGroup;
 

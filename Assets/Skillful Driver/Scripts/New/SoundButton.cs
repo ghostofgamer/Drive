@@ -14,7 +14,6 @@ public class SoundButton : MonoBehaviour
     private void Start()
     {
         float soundValue = PlayerPrefs.GetFloat("SoundVolume",1);
-        Debug.Log("SOUND " + soundValue);
         
         if (soundValue > 0)
         {

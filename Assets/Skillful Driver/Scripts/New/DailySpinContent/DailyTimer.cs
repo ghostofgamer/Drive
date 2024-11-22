@@ -33,6 +33,7 @@ public class DailyTimer : MonoBehaviour
 
             if (DateTime.TryParse(timing, out tim))
             {
+                
                 if (DateTime.Now - tim >= TimeSpan.FromHours(24))
                 {
                     foreach (var button in buttonSpin)
@@ -75,6 +76,7 @@ public class DailyTimer : MonoBehaviour
     {
         lastTimesSpin = DateTime.Now;
         PlayerPrefs.SetString("LastPressTime", DateTime.Now.ToString());
+        PlayerPrefs.SetString("LastSpin", "крути");
         PlayerPrefs.Save();
         
         foreach (var button in buttonSpin)
