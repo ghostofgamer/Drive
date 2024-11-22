@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LuckyWell : MonoBehaviour
 {
- [SerializeField] private SpriteRenderer wheel;
+ // [SerializeField] private SpriteRenderer wheel;
+ [SerializeField] private Image wheel;
     [SerializeField] private ParticleSystem particle;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float rotationTimeMaxSpeed;
@@ -72,7 +74,7 @@ public class LuckyWell : MonoBehaviour
             yield return null;
         }
 
-        particle.Play();
+        // particle.Play();
         isSpin = false;
     }
 
