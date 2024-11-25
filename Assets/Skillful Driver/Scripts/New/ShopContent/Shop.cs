@@ -17,6 +17,15 @@ public class Shop : MonoBehaviour
         {
             int buyed = PlayerPrefs.GetInt("car" + i, 0);
 
+            if (i == 0)
+            {
+                buyed = 1;
+
+                if (PlayerPrefs.GetInt("ChoosenItem", 0) == 0)
+                    _ownCars[i].GetComponent<SelectCar>().Select();
+            }
+
+
             if (buyed > 0)
             {
                 _ownCars[i].SetActive(true);
@@ -28,5 +37,9 @@ public class Shop : MonoBehaviour
                 _ownCars[i].SetActive(false);
             }
         }
+    }
+
+    public void ChangeSelectedCar()
+    {
     }
 }

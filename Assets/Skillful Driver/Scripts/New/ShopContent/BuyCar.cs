@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuyCar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int _index;
+    [SerializeField] private Shop _shop;
+    
+    public void Buy()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PlayerPrefs.SetInt("car" + _index, 1);
+        Debug.Log(  PlayerPrefs.GetInt("car" + _index, 0));
+        _shop.LoadCar();
     }
 }

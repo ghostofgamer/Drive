@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectCar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int  _index;
+    [SerializeField]private CarSelector _carSelector;
+    [SerializeField] private GameObject _selectedPack;
+    [SerializeField] private GameObject _notSelectedPack;
+
+    public void ChangeSelectedPack()
     {
-        
+        _carSelector.SelectCar(_index);
+    }
+    
+    public void Select()
+    {
+        PlayerPrefs.SetInt("ChoosenItem", _index);
+        _selectedPack.SetActive(true);
+        _notSelectedPack.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Unselect()
     {
-        
+        _selectedPack.SetActive(false);
+        _notSelectedPack.SetActive(true);
     }
 }
