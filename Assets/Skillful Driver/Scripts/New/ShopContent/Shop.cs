@@ -13,7 +13,7 @@ public class Shop : MonoBehaviour
 
     public void LoadCar()
     {
-        for (int i = 0; i < _sprites.Length; i++)
+        for (int i = 0; i < _ownCars.Length; i++)
         {
             int buyed = PlayerPrefs.GetInt("car" + i, 0);
 
@@ -21,8 +21,8 @@ public class Shop : MonoBehaviour
             {
                 buyed = 1;
 
-                if (PlayerPrefs.GetInt("ChoosenItem", 0) == 0)
-                    _ownCars[i].GetComponent<SelectCar>().Select();
+                /*if (PlayerPrefs.GetInt("ChoosenItem", 0) == 0)
+                    _ownCars[i].GetComponent<SelectCar>().Select();*/
             }
 
 
@@ -37,6 +37,9 @@ public class Shop : MonoBehaviour
                 _ownCars[i].SetActive(false);
             }
         }
+
+        int selectedCar = PlayerPrefs.GetInt("ChoosenItem", 0);
+        _ownCars[selectedCar].GetComponent<SelectCar>().Select();
     }
 
     public void ChangeSelectedCar()

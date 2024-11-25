@@ -8,10 +8,10 @@ public class CarSelector : MonoBehaviour
     {
         for (int i = 0; i < _cars.Length; i++)
         {
-            if(i==index)
-                _cars[i].Select();
-            
             _cars[i].Unselect();
+
+            if (i == index)
+                _cars[i].Select();
         }
     }
 }

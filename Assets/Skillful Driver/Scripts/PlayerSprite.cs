@@ -18,14 +18,18 @@ namespace SkillfulDriver
 
 		public void LoadPlayerSprite()
 		{
+			
+			
 			if (PlayerPrefs.GetInt("ChoosenItem", 0) == 0)
 			{
+				Debug.Log("НУЛ");
 				SpriteRenderer sprite = GetComponent<SpriteRenderer>();
 				sprite.sprite = playerSprite[0];
 			}
 			else
 			{
-				int choosenItem = (PlayerPrefs.GetInt("ChoosenItem", 0) - 1);
+				int choosenItem = (PlayerPrefs.GetInt("ChoosenItem", 0));
+				Debug.Log("Выбрать индекс машины " + choosenItem);
 				SpriteRenderer sprite = GetComponent<SpriteRenderer>();
 				sprite.sprite = playerSprite[choosenItem];
 				Color color;

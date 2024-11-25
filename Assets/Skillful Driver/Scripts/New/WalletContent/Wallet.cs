@@ -6,6 +6,8 @@ public class Wallet : MonoBehaviour
     private int _diamonds;
 
     public event Action<int> DiamondsValueChanged;
+
+    public int Diamonds => _diamonds;
     
     private void Start()
     {
