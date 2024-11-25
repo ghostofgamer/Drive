@@ -9,6 +9,7 @@ namespace SkillfulDriver
         //This script is attached to the diamonds that will spawn on each game area. And it is used to trigger the logic when player collect it
         [SerializeField]
         private GameObject explosionParticle = null;
+        
         void OnTriggerEnter2D(Collider2D col)
         {
             if (PlayerPrefs.GetInt("Vibration") == 1)
@@ -17,7 +18,8 @@ namespace SkillfulDriver
             }
             GameObject.Find("DiamondCollectSound").GetComponent<AudioSource>().Play();
             PlayerPrefs.SetInt("TotalNumberOfDiamonds", PlayerPrefs.GetInt("TotalNumberOfDiamonds") + 1);
-            PlayerPrefs.SetInt("NumberOfDiamonds", PlayerPrefs.GetInt("NumberOfDiamonds") + 1);
+            GameObject.Find("Wallet").GetComponent<Wallet>().IncreaseDiamonds(1);
+            // PlayerPrefs.SetInt("NumberOfDiamonds", PlayerPrefs.GetInt("NumberOfDiamonds") + 1);
             explosionParticle.SetActive(true);
             explosionParticle.transform.parent = null;
             Destroy(this.gameObject);
