@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SkillfulDriver
 {
@@ -19,6 +17,7 @@ namespace SkillfulDriver
             GameObject.Find("DiamondCollectSound").GetComponent<AudioSource>().Play();
             PlayerPrefs.SetInt("TotalNumberOfDiamonds", PlayerPrefs.GetInt("TotalNumberOfDiamonds") + 1);
             GameObject.Find("Wallet").GetComponent<Wallet>().IncreaseDiamonds(1);
+            GameObject.Find("Wallet").GetComponent<Wallet>().AddCollectStat();
             // PlayerPrefs.SetInt("NumberOfDiamonds", PlayerPrefs.GetInt("NumberOfDiamonds") + 1);
             explosionParticle.SetActive(true);
             explosionParticle.transform.parent = null;

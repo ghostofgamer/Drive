@@ -15,14 +15,14 @@ namespace SkillfulDriver
 
         void Start()
         {
-            score = GameObject.Find("ScoreText").GetComponent<Text>();
+            // score = GameObject.Find("ScoreText").GetComponent<Text>();
         }
 
         void Update()
         {
             transform.position += transform.up * Time.deltaTime * speed;
             Vars.score += Time.deltaTime;
-            score.text = "SCORE: " + (int)Vars.score;
+            // score.text = "SCORE: " + (int)Vars.score;
             speed += Time.deltaTime / 100;
 
         }

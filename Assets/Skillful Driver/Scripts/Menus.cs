@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace SkillfulDriver
 {
     public class Menus : MonoBehaviour
     {
+        [SerializeField] private Text _text;
+        [SerializeField] private Wallet _wallet;
+
+
         //This script is attached to the "GameManager" game object and it is used for navigation through the different menus
         [SerializeField]
         private CarMovement carMovement = null;
@@ -62,26 +67,33 @@ namespace SkillfulDriver
 
         private void RandomRoadColor()
         {
+            Camera camera = Camera.main;
             int randColor = Random.Range(1, 6);
+            randColor = 5;
             if (randColor == 1)
             {
                 Vars.roadColor = new Color32(234, 79, 94, 255);
+                camera.backgroundColor = new Color32(15, 53, 11, 0);
             }
             else if (randColor == 2)
             {
                 Vars.roadColor = new Color32(246, 195, 72, 255);
+                camera.backgroundColor = new Color32(26, 104, 106, 0);
             }
             else if (randColor == 3)
             {
                 Vars.roadColor = new Color32(64, 231, 185, 255);
+                camera.backgroundColor = new Color32(70, 39, 23, 0);
             }
             else if (randColor == 4)
             {
                 Vars.roadColor = new Color32(254, 138, 27, 255);
+                camera.backgroundColor = new Color32(36, 14, 50, 0);
             }
             else if (randColor == 5)
             {
                 Vars.roadColor = new Color32(70, 183, 171, 255);
+                camera.backgroundColor = new Color32(36, 16, 23, 0);
             }
         }
 
@@ -216,14 +228,20 @@ namespace SkillfulDriver
 
         public void ReplayTheGameTransitionAnimation()
         {
-            Time.timeScale = 1;
+            string currentSceneName = SceneManager.GetActiveScene().name;
+
+            // Перезагружаем текущую сцену
+            SceneManager.LoadScene(currentSceneName);
+            
+            
+            /*Time.timeScale = 1;
             if (carMovement != null)
                 carMovement.enabled = false;
             if (carRotation != null)
                 carRotation.enabled = false;
             GameObject.Find("GameManager").GetComponent<MenuFadeInFadeOutAnimation>().menu = 0;
             GameObject.Find("GameManager").GetComponent<MenuFadeInFadeOutAnimation>().enabled = true;
-            buttonSound.Play();
+            buttonSound.Play();*/
         }
 
         public void ReplayTheGame()
@@ -267,6 +285,8 @@ namespace SkillfulDriver
                 PlayerPrefs.SetInt("BestScore", (int)Vars.score);
             gameOverBestScoreText.text = "BEST SCORE: " + PlayerPrefs.GetInt("BestScore");
             Invoke("ShowGameOverMenu", 1.2f);
+
+            _text.text = _wallet.DiamondThisCollectGame.ToString();
         }
 
         private void ShowGameOverMenu()

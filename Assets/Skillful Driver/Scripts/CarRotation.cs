@@ -17,9 +17,9 @@ namespace SkillfulDriver
         
         void Update()
         {
-            turnInput = Input.GetAxis("Horizontal");
+            // turnInput = Input.GetAxis("Horizontal");
             
-            // turnInput = Mathf.Lerp(turnInput, targetTurnInput, Time.deltaTime * 1f);
+            turnInput = Mathf.Lerp(turnInput, targetTurnInput, Time.deltaTime * 1f);
             
             rot -= turnInput * turnSpeed * Time.deltaTime;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, rot), turnSpeed * Time.deltaTime);

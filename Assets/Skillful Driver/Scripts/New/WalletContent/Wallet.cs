@@ -7,10 +7,13 @@ public class Wallet : MonoBehaviour
 
     public event Action<int> DiamondsValueChanged;
 
+    public int DiamondThisCollectGame { get; private set; } = 0;
+        
     public int Diamonds => _diamonds;
     
     private void Start()
     {
+        DiamondThisCollectGame = 0;
         _diamonds = PlayerPrefs.GetInt("NumberOfDiamonds", 0);
     }
 
@@ -28,5 +31,10 @@ public class Wallet : MonoBehaviour
         _diamonds -= diamonds;
         PlayerPrefs.SetInt("NumberOfDiamonds", _diamonds);
         DiamondsValueChanged ?. Invoke(_diamonds);
+    }
+
+    public void AddCollectStat()
+    {
+        DiamondThisCollectGame++;
     }
 }

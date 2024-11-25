@@ -27,30 +27,12 @@ public class ChangePanelShop : MonoBehaviour
             _imageButton.sprite = _offSprite;
             _isActive = false;
         }
-            
-        /*if (lastPanel > 0)
-        {
-            if (_isPanelShop)
-            {
-                _imageButton.sprite = _onSprite;
-                _isActive = true;
-            }
-        }
-        else
-        {
-            if (!_isPanelShop)
-            {
-                _imageButton.sprite = _offSprite;
-                _isActive = false;
-            }
-        }*/
     }
 
     public void Click()
     {
         _imageButton.sprite = _onSprite;
         _button.ChangeSpriteOtherButton();
-        
         PlayerPrefs.SetInt("LastPanel", _index);
     }
 
