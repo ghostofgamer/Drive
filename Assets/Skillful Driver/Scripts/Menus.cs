@@ -69,7 +69,14 @@ namespace SkillfulDriver
         {
             Camera camera = Camera.main;
             int randColor = Random.Range(1, 6);
-            randColor = 5;
+            randColor = 0;
+            if (randColor == 0)
+            {
+                Vars.roadColor = new Color32(130, 130, 130, 255);
+                // camera.backgroundColor = new Color32(15, 53, 11, 0);
+            }
+            
+            
             if (randColor == 1)
             {
                 Vars.roadColor = new Color32(234, 79, 94, 255);
