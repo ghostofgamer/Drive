@@ -24,7 +24,6 @@ namespace SkillfulDriver
             Vars.score += Time.deltaTime;
             // score.text = "SCORE: " + (int)Vars.score;
             speed += Time.deltaTime / 100;
-
         }
     }
 }
