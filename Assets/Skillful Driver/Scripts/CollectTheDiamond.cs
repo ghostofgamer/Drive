@@ -12,7 +12,8 @@ namespace SkillfulDriver
         {
             if (PlayerPrefs.GetInt("Vibration") == 1)
             {
-                Handheld.Vibrate();
+                //Handheld.Vibrate();
+
             }
             GameObject.Find("DiamondCollectSound").GetComponent<AudioSource>().Play();
             PlayerPrefs.SetInt("TotalNumberOfDiamonds", PlayerPrefs.GetInt("TotalNumberOfDiamonds") + 1);
